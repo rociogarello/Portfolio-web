@@ -1,0 +1,12 @@
+<section *ngIf="educationList != null && this.educationList.length > 0">
+    <h3>Educación</h3>
+    <div *ngFor="let education of this.educationList" class="contenedor">
+        <fa-icon [icon]="graduation" class="icon"></fa-icon>
+        <div class="info">
+            <h4>{{ education.institute }}</h4>
+            <time>{{ getDate(education.startDate) }} -
+                {{ education.endDate === '9999-09-09' ? 'Actualidad' : getDate(education.endDate) }}</time>
+            <p>{{ education.title }}</p>
+        </div>
+    </div>
+</section>

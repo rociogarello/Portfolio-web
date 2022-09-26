@@ -1,0 +1,10 @@
+<section *ngIf="contactList != null && contactList.length > 0">
+    <h3>Contacto</h3>
+    <div *ngFor="let contact of this.contactList" class="contenedor">
+        <fa-icon [icon]="envelope" class="icon"></fa-icon>
+        <div class="info">
+            <h4>{{ contact.description }}</h4>
+            <p>{{ contact.contact }}</p>
+        </div>
+    </div>
+</section>

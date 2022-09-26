@@ -1,0 +1,52 @@
+<section>
+    <h3>Projectos</h3>
+    <button class="centerButton" (click)="crear()">
+        <fa-icon [icon]="faplus"></fa-icon>
+    </button>
+    <form *ngIf="operacion === 1 || operacion === 2" [formGroup]="form">
+        <div class="grid">
+            <label for="project-name">Nombre de Proyecto</label>
+            <input type="text" name="project-name" formControlName="projectName">
+        </div>
+        <div class="grid">
+            <label for="description">Descripción</label>
+            <input type="text" name="description" formControlName="description">
+        </div>
+        <div class="grid">
+            <label for="site">Sitio</label>
+            <input type="text" name="site" formControlName="site">
+        </div>
+        <div class="grid">
+            <label for="image">Imagen</label>
+            <input type="file" name="image" (change)="uploadFile($event)">
+        </div>
+        <div class="imagesGrid">
+            <div *ngFor="let technology of technologies" [style.border]="this.technologiesId.value.includes(technology.id) ? '2px solid green' : null">
+                <img [src]="'data:image/jpeg;base64,' + technology.image" [alt]="technology.technologyName" (click)="addAndRemoveFromProject(technology.id)">
+            </div>
+        </div>
+        <button *ngIf="operacion === 1 &&  persona?.id != null" (click)="createProject()">Guardar</button>
+        <button *ngIf="operacion === 2 &&  persona?.id != null" (click)="updateProject()">Actualizar</button>
+    </form>
+    <div *ngIf="isLoading" class="isLoading"></div>
+    <div *ngIf="!isLoading && this.projectList.length > 0">
+        <table>
+            <tr>
+                <th>Nombre de Proyecto</th>
+                <th>Descripción</th>
+                <th>Sitio</th>
+                <th>Imagen</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let project of this.projectList">
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.site }}</td>
+                <td><img [src]="'data:image/jpeg;base64,' + project.image" alt="Imagen de proyecto"></td>
+                <td><button (click)="actualizar(project)">Editar</button></td>
+                <td><button (click)="borrar(project.id)">Borrar</button></td>
+            </tr>
+        </table>
+    </div>
+</section>

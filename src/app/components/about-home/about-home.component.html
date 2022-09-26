@@ -1,0 +1,10 @@
+<img *ngIf="about != null && about.image != null" [src]="getImage(about.image)" alt="Imagen about">
+<section>
+    <div class="contenedor" *ngIf="about != null">
+        <fa-icon [icon]="aboutUs" class="icon"></fa-icon>
+        <div class="info">
+            <h4>{{ about.title }}</h4>
+            <p>{{ about.about }}</p>
+        </div>
+    </div>
+</section>

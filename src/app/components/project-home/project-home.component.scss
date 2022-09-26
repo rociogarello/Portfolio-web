@@ -1,0 +1,83 @@
+@use '../../../global_styles/mixins' as m;
+section {
+    border-top: 5px ridge lightgray;
+    border-bottom: 5px ridge lightgray;
+    padding: 1rem;
+    @media (min-width: 468px) {
+        margin: 1rem auto;
+    }
+}
+
+.contenedor {
+    width: 100%;
+    margin: 1rem auto;
+    @media (min-width: 768px) {
+        width: 70%;
+    }
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    @media (min-width: 996px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+h3 {
+    @include m.centrarTexto;
+}
+
+h4 {
+    @include m.centrarTexto;
+    font-size: 2rem;
+}
+
+.info {
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 5px 2px gray;
+}
+
+a {
+    display: block;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px 2px gray;
+    max-width: max-content;
+    margin: 0 auto;
+    font-weight: 700;
+    transition: background-color .3s linear;
+}
+
+a:hover {
+    background-color: lightgray;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.techGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    gap: .5rem;
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: 996px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    margin: 1rem auto;
+}
+
+.techImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

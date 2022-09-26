@@ -1,0 +1,40 @@
+<section>
+    <h3>Technologías</h3>
+    <button class="centerButton" (click)="crear()">
+        <fa-icon [icon]="faplus"></fa-icon>
+    </button>
+    <div *ngIf="isLoading" class="isLoading"></div>
+    <form *ngIf="operacion === 1 || operacion === 2" [formGroup]="form">
+        <div class="grid">
+            <label for="technology-name">Nombre de Tecnología</label>
+            <input type="text" name="technology-name" formControlName="technologyName">
+        </div>
+        <div class="grid">
+            <label for="technology-level">Nivel</label>
+            <input type="text" name="technology-level" formControlName="technologyLevel">
+        </div>
+        <div class="grid">
+            <label for="technology-image">Imagen</label>
+            <input type="file" (change)="uploadFile($event)">
+        </div>
+        <input type="hidden" name="personaId" formControlName="personaId" [defaultValue]="persona?.id">
+        <button *ngIf="operacion === 1" (click)="createTechnology()" [disabled]="persona?.id === null">Guardar</button>
+        <button *ngIf="operacion === 2" (click)="updateTechnology()" [disabled]="persona?.id === null">Actualizar</button>
+    </form>
+    <table *ngIf="!isLoading && this.technologyList.length > 0">
+        <tr>
+            <th>Nombre de Tecnología</th>
+            <th>Nivel</th>
+            <th>Imagen</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+        <tr *ngFor="let technology of this.technologyList">
+            <td>{{ technology.technologyName }}</td>
+            <td>{{ technology.technologyLevel }}</td>
+            <td><img [src]="getImagen(technology.image)" alt=""></td>
+            <td><button (click)="editar(technology)">Editar</button></td>
+            <td><button (click)="borrar(technology.id)">Borrar</button></td>
+        </tr>
+    </table>
+</section>

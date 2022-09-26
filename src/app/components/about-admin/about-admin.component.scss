@@ -1,0 +1,35 @@
+section {
+    padding: 1rem;
+    h3 {
+        text-align: center;
+    }
+    form {
+        border: 2px solid gray;
+        width: 100%;
+        padding: 2rem;
+        display: block;
+        @media (min-width: 768px) {
+            width: 50%;
+            margin: 1rem auto;
+        }
+        button {
+            margin: 1rem auto;
+            display: block;
+        }
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 20% 70%;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    table {
+        width: 100%;
+        border: 2px solid gray;
+        tr,
+        th,
+        td {
+            text-align: center;
+        }
+    }
+}

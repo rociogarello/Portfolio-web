@@ -1,0 +1,37 @@
+<section>
+    <h3>Sobre mí</h3>
+    <form *ngIf="operacion === 1 || operacion === 2" [formGroup]="form">
+        <div class="grid">
+            <label for="title">Profesión</label>
+            <input type="text" name="title" formControlName="title">
+        </div>
+        <div class="grid">
+            <label for="about">Mensaje</label>
+            <input type="text" name="about" formControlName="about">
+        </div>
+        <div class="grid">
+            <label for="image">Imagen</label>
+            <input type="file" name="file" (change)="uploadFile($event)">
+        </div>
+        <input type="hidden" name="persona-id" formControlName="personaId">
+        <button *ngIf="operacion === 2" (click)="actualizarAbout()" [disabled]="persona?.id === null">Actualizar</button>
+    </form>
+    <p *ngIf="!isLoading && errorMsg !== null">{{ this.errorMsg }}</p>
+    <div *ngIf="isLoading" class="isLoading"></div>
+    <div *ngIf="!isLoading && about !== null">
+        <table>
+            <tr>
+                <th>Imagen</th>
+                <th>Profesión</th>
+                <th>Mensaje</th>
+                <th>Editar</th>
+            </tr>
+            <tr>
+                <td><img [src]="about.image" height="50" width="50"></td>
+                <td>{{ about.title }}</td>
+                <td>{{ about.about }}</td>
+                <td><button (click)="actualizar()">Editar</button></td>
+            </tr>
+        </table>
+    </div>
+</section>

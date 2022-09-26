@@ -1,0 +1,42 @@
+#animation {
+    text-align: center;
+    font-size: 3rem;
+}
+
+section {
+    background-image: url('../../../assets/imagen/code.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 600px;
+    h3 {
+        font-size: 2rem;
+    }
+    @media (min-width: 468px) {
+        height: 500px;
+    }
+    div {
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: .5);
+        display: flex;
+        align-items: center;
+    }
+    h3 {
+        color: white;
+        margin: 0 auto;
+        padding: 2rem;
+        width: 70%;
+        line-height: 1.5;
+        @media (min-width: 468px) {
+            line-height: 2;
+        }
+        @media (min-width: 768px) {
+            line-height: 3;
+        }
+    }
+}

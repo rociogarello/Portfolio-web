@@ -1,0 +1,23 @@
+@use '../../../global_styles/mixins' as m;
+nav {
+    margin: 0 1rem 0 0;
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+button {
+    width: 100%55;
+    margin: 1rem auto;
+    display: block;
+    padding: 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+button:hover {
+    color: white;
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+@use '../../../global_styles/mixins' as m;
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: -75px auto auto 75px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+@include m.card;

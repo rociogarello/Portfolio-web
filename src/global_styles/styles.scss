@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use 'normalize';
+@use 'variables' as v;
+@use 'mixins' as m;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+app-root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.isLoading {
+    height: 50px;
+    width: 50px;
+    border: 5px solid lightblue;
+    border-top: 5px solid blue;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    margin: 1.5rem auto;
+}
+
+.center {
+    text-align: center;
+}
+
+footer {
+    @include m.centrarTexto;
+}
+
+.centerButton {
+    margin: 1rem auto;
+    display: block;
+}
+
+button {
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5rem;
+    transition: all .2s linear;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+}
+
+th,
+td {
+    padding: 1rem;
+}

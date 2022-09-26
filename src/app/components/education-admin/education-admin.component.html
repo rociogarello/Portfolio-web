@@ -1,0 +1,52 @@
+<section>
+    <h3>Educación</h3>
+    <button class="centerButton" (click)="crear()">
+        <fa-icon [icon]="faplus"></fa-icon>
+    </button>
+    <div *ngIf="isLoading" class="isLoading"></div>
+    <form *ngIf="operacion === 1 || operacion === 2">
+        <div class="grid">
+            <label for="institute">Institución</label>
+            <input type="text" name="institute" [(ngModel)]="educationForm.institute" [value]="educationForm.institute">
+        </div>
+        <div class="grid">
+            <label for="title">Títutlo</label>
+            <input type="text" name="title" [(ngModel)]="educationForm.title" [value]="educationForm.title">
+        </div>
+        <div class="grid">
+            <label for="start-date">Fecha de Inicio</label>
+            <input type="date" name="start-date" [(ngModel)]="educationForm.startDate" [value]="educationForm.startDate">
+        </div>
+        <div class="grid">
+            <label for="end-date">Fecha de Finalización</label>
+            <input [disabled]="educationForm.isPresent" type="date" name="end-date" [(ngModel)]="educationForm.endDate" [value]="educationForm.endDate">
+        </div>
+        <div class="grid">
+            <label for="present">Presente</label>
+            <input type="checkbox" name="presente" id="presente" [(ngModel)]="educationForm.isPresent">
+        </div>
+        <button *ngIf="operacion === 1 && persona?.id != null" (click)="createEducation()">Guardar</button>
+        <button *ngIf="operacion === 2 && persona?.id != null" (click)="updateEducation()">Actualizar</button>
+        <button *ngIf="operacion === 1 || operacion === 2" (click)="cancelar()">Cancelar</button>
+    </form>
+    <div *ngIf="!isLoading && educationList.length > 0">
+        <table>
+            <tr>
+                <th>Institución</th>
+                <th>Título</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Finalización</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let education of this.educationList">
+                <td>{{ education.institute }}</td>
+                <td>{{ education.title }}</td>
+                <td>{{ education.startDate }}</td>
+                <td>{{ education.endDate === '9999-09-09' ? 'Presente' : education.endDate }}</td>
+                <td><button (click)="editar(education)">Editar</button></td>
+                <td><button (click)="borrar(education.id)">Borrar</button></td>
+            </tr>
+        </table>
+    </div>
+</section>

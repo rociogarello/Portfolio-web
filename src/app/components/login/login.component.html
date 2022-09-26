@@ -1,0 +1,11 @@
+<form action="">
+    <div class="grid">
+        <label for="username">Email</label>
+        <input name="username" type="text" [(ngModel)]="login.username">
+    </div>
+    <div class="grid">
+        <label for="password">Contraseña</label>
+        <input name="password" type="password" [(ngModel)]="login.password">
+    </div>
+    <button (click)="loginUser()">Iniciar Sesión</button>
+</form>

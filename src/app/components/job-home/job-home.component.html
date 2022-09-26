@@ -1,0 +1,13 @@
+<section *ngIf="jobs != null && this.jobs.length > 0">
+    <h3>Experiencia Laboral</h3>
+    <div *ngFor="let job of this.jobs" class="contenedor">
+        <fa-icon [icon]="briefcase" class="icon"></fa-icon>
+        <div class="info">
+            <h4>{{ job.jobRole }}</h4>
+            <time>{{ getDate(job.startDate) }} -
+                {{ job.endDate === '9999-09-09' ? 'Actualidad' : getDate(job.endDate) }}</time>
+            <p>{{ job.companyName }}</p>
+            <p>{{ job.jobDescription }}</p>
+        </div>
+    </div>
+</section>

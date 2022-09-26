@@ -1,0 +1,94 @@
+@mixin centrarTexto {
+    text-align: center;
+}
+
+@mixin centrarDiv($margin) {
+    margin: $margin auto;
+}
+
+@mixin contenedor($margin) {
+    width: 100%;
+    @include centrarDiv($margin);
+    padding: 2rem;
+    @media (min-width: 468px) {
+        width: 70%;
+        margin: $margin auto;
+    }
+}
+
+@mixin grid($columns) {
+    @media (min-width: 468px) {
+        display: grid!important;
+        @if $columns>2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @else {
+            grid-template-columns: repeat($columns, 1fr);
+        }
+    }
+    @media (min-width: 768px) {
+        grid-template-columns: repeat($columns, 1fr);
+    }
+}
+
+@mixin visibleUntil($width) {
+    display: block;
+    @media (min-width: $width) {
+        display: none;
+    }
+}
+
+@mixin visibleFrom($width) {
+    display: none;
+    @media (min-width: $width) {
+        display: block;
+    }
+}
+
+@mixin maximumWidth($width) {
+    max-width: 100%;
+    @media (min-width: 468px) {
+        max-width: $width;
+    }
+}
+
+@mixin flexSpace {
+    display: block;
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@mixin card {
+    section {
+        border-top: 5px ridge lightgray;
+        margin: 3rem 0;
+        padding: 2rem;
+    }
+    h3 {
+        @include centrarTexto;
+    }
+    .icon {
+        font-size: 8rem;
+        color: gray;
+        margin: auto;
+    }
+    .contenedor {
+        @include contenedor(1rem);
+        @include grid(2);
+        gap: 3rem;
+        box-shadow: 2px 2px 5px 2px gray;
+    }
+    h4 {
+        font-size: 2rem;
+    }
+}
+
+@mixin time {
+    time {
+        color: gray;
+        font-size: 1.5rem;
+    }
+}

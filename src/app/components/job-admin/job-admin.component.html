@@ -1,0 +1,57 @@
+<section>
+    <h3>Experiencia Laboral</h3>
+    <button class="centerButton" (click)="crear()">
+        <fa-icon [icon]="faplus"></fa-icon>
+    </button>
+    <form *ngIf="operacion === 1 || operacion === 2">
+        <div class="grid">
+            <label for="company-name">Nombre de Empresa</label>
+            <input type="text" name="company-name" [(ngModel)]="jobForm.companyName">
+        </div>
+        <div class="grid">
+            <label for="job-role">Rol</label>
+            <input type="text" name="job-role" [(ngModel)]="jobForm.jobRole">
+        </div>
+        <div class="grid">
+            <label for="job-description">Descripción</label>
+            <input type="text" name="job-description" [(ngModel)]="jobForm.jobDescription">
+        </div>
+        <div class="grid">
+            <label for="start-date">Fecha de Inicio</label>
+            <input type="date" name="start-date" [(ngModel)]="jobForm.startDate">
+        </div>
+        <div class="grid">
+            <label for="end-date">Fecha de Finalización</label>
+            <input [disabled]="jobForm.isPresent" type="date" name="end-date" [(ngModel)]="jobForm.endDate">
+        </div>
+        <div class="grid">
+            <label for="isPresent">Presente</label>
+            <input type="checkbox" name="isPresent" id="isPresent" [(ngModel)]="jobForm.isPresent">
+        </div>
+        <button *ngIf="operacion === 1 && persona?.id !== null" (click)="createJobs()">Guardar</button>
+        <button *ngIf="operacion === 2 && persona?.id !== null" (click)="updateJobs()">Actualizar</button>
+    </form>
+    <div *ngIf="isLoading" class="isLoading"></div>
+    <div *ngIf="!isLoading && jobList.length > 0">
+        <table>
+            <tr>
+                <th>Nombre de Empresa</th>
+                <th>Rol</th>
+                <th>Descripción</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Finalización</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let job of this.jobList">
+                <td>{{ job.companyName }}</td>
+                <td>{{ job.jobRole }}</td>
+                <td>{{ job.jobDescription }}</td>
+                <td>{{ job.startDate }}</td>
+                <td>{{ job.endDate === '9999-09-09' ? 'Presente' : job.endDate }}</td>
+                <td><button (click)="actualizar(job)">Editar</button></td>
+                <td><button (click)="borrar(job.id)">Borrar</button></td>
+            </tr>
+        </table>
+    </div>
+</section>

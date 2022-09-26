@@ -1,0 +1,13 @@
+app-logo {
+    width: 50%;
+    @media (min-width: 1200px) {
+        width: 25%;
+    }
+}
+
+app-navigation {
+    width: 50%;
+    @media (min-width: 1200px) {
+        width: 25%;
+    }
+}

@@ -1,0 +1,5 @@
+<nav>
+    <button (click)="login()" *ngIf="!logeado()">Iniciar Sesión</button>
+    <button (click)="deslogear()" *ngIf="logeado()">Deslogear</button>
+    <button (click)="administrar()" *ngIf="logeado() && !adminUrl()">Administrador</button>
+</nav>

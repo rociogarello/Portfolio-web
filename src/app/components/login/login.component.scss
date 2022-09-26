@@ -1,0 +1,47 @@
+form {
+    width: 100%;
+    padding: 2rem;
+    @media (min-width: 468px) {
+        width: 50%;
+        margin: 2rem auto;
+    }
+    border: 2px solid gray;
+    border-radius: 10px;
+    label,
+    input {
+        padding: 0.5rem;
+        font-size: 16px;
+    }
+    input {
+        border-radius: 5px;
+        box-shadow: 2px 2px 3px 2px lightgray;
+    }
+}
+
+.grid {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    @media (min-width: 468px) {
+        display: grid;
+        grid-template-columns: 25% 50%;
+        gap: 1rem;
+    }
+}
+
+button {
+    margin: 1rem auto;
+    display: block;
+    background-color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 7px;
+    border: 2px solid gray;
+    transition: all 0.2s linear;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+    border: 2px solid gray;
+}

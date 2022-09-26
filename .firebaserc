@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "portfolio-rocio-garello",
+    "Rocio": "portfolio-rocio-garello"
+  },
+  "targets": {}
+}

@@ -1,0 +1,12 @@
+<section *ngIf="technologyList != null && this.technologyList.length > 0">
+    <h3>Tecnologías</h3>
+    <div *ngFor="let technology of this.technologyList" class="contenedor">
+        <fa-icon [icon]="code" class="icon"></fa-icon>
+        <div class="info">
+            <h4>{{ technology.technologyName }}</h4>
+            <div class="skill">
+                <div class="level" [style.width]="technology.technologyLevel + '%'"></div>
+            </div>
+        </div>
+    </div>
+</section>
